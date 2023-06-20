@@ -5,7 +5,7 @@
  */
 void print_void_x10(void)
 {
-	char j, r
+	char j, r;
 	
 	for (r = 0; r < 10; r++)
 	{
@@ -13,5 +13,6 @@ void print_void_x10(void)
 		{
 			_putchar(j);
 		}
+		_putchar('\n')
 	}
 }	
