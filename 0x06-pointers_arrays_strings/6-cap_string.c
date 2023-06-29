@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * cap_string - print a function
+ * *cap_string - print a function
  * @j: pointer
  * Return: pointer return to function.
  */
