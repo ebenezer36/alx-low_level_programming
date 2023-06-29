@@ -1,10 +1,10 @@
-#include"main.h"
+#include "main.h"
 /**
- * _strncpy - prints a function that copy a string
- * @dest: pointer of char 
+ * _strncpy - copy string
  * @src: pointer of char
+ * @dest: pointer of char
  * @n: integer
- * Return: char 
+ * Return: char
  */
 
 char *_strncpy(char *dest, char *src, int n)
