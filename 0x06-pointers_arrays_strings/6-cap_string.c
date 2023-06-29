@@ -1,24 +1,25 @@
 #include "main.h"
 /**
- * *cap_string - print a function
- * @j: pointer
- * Return: pointer return to function.
+ * *cap_string - function
+ * @str: Pointer
+ * Return: poniter return to function.
  */
 
-char *cap_string(char *j)
+char *cap_string(char *str)
 {
-	int symb[14] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}',};
-	int i, k;
+	int symb[14] = {' ', '\t', '\n', ',', ';', '.', '!',
+		'?', '"', '(', ')', '{', '}'};
+	int i, j;
 
-	for (i = 0; j[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (j[0] >= 97 && j[0] <+ 122)
-		{
-			j[0] = j[0] - 32;
-		}
-		for (k = 0; k < 14; k++)
-			if (j[i] >= 97 && j[i] <= 122 && j[i - 1] == symb[k])
-				j[i] = j[i] - 32;
+		if (str[0] >= 97 && str[0] <= 122)
+	{
+			str[0] = str[0] - 32;
 	}
-	return (j);
+	for (j = 0; j < 14; j++)
+		if (str[i] >= 97 && str[i] <= 122 && str[i - 1] == symb[j])
+			str[i] = str[i] - 32;
+	}
+	return (str);
 }
