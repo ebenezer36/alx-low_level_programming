@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * string_toupper - funtion to uppercase
+ * string_toupper - fonction toupper
  * @j: pointer
  * Return: pointer in return
  */
