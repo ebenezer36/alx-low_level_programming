@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * cap_string - print a function that capitalize all the words of a string
+ * cap_string - print a function
  * @j: pointer
  * Return: Always 0.
  */
