@@ -1,19 +1,19 @@
-#include "main.h"
+#include"main.h"
 /**
  * string_toupper - fonction toupper
- * @j: pointer
+ * @a: pointer
  * Return: pointer in return
  */
-char *string_toupper(char *j)
+char *string_toupper(char *a)
 {
 	int i;
 
-	for (i = 0; j[i] != 0; i++)
+	for (i = 0; a[i] != 0; i++)
 	{
-		if (j[i] > 90 && j[i] != 10)
+		if (a[i] > 90 && a[i] != 10)
 	{
-		j[i] = j[i] - 32
+		a[i] = a[i] - 32;
 	}
 	}
-	return(j);
+	return (a);
 }
