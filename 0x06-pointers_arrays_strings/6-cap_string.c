@@ -2,7 +2,7 @@
 /**
  * cap_string - print a function
  * @j: pointer
- * Return: Always 0.
+ * Return: pointer return to function.
  */
 
 char *cap_string(char *j)
