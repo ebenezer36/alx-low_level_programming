@@ -2,13 +2,13 @@
 
 /**
  * _strncat - print a function that concatenates two strings
- * @dest : first string
- * @src : second string
- * @n : integer
- * Return: String
+ * @dest : char
+ * @src : char
+ * @n : int
+ * Return: char
  */
 
-char *_strncat(char *dest, char *src,  int n )
+char *_strncat(char *dest, char *src, int n)
 {
 	int i, j;
 
