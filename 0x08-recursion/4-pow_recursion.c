@@ -2,7 +2,7 @@
 
 /**
  * _pow_recursion - print the value of x raised to the power of y
- * @x : integer 
+ * @x : integer parameter
  * @y : exponential integer
  * Return: -1 if y is lower than 0.
  */
