@@ -5,7 +5,7 @@
  * _strcat - prints a function that concatenates two strings
  * @dest : first string
  * @src : second string
- * Return: Always 0.
+ * Return: void
  */
 
 char *_strcat(char *dest, char *src)
