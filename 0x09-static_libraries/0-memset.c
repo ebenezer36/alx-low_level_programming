@@ -3,9 +3,9 @@
 *_memset - The _memset() function fills
 * the first n bytes of the memory area
 * pointed to by s with the constant byte b
-*@s:target
+*@s: target
 *@b: constant byte
-*@n:number of byte
+*@n: number of byte
 *Return: returns new value of target
 */
 

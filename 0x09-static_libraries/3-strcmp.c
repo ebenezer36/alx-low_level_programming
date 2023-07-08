@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- *_strcmp - function comparison of strings
- *@s1:  pointer
- *@s2:  pointer
- *Return: j-integer
+ * _strcmp - function comparison of strings
+ * @s1:  pointer
+ * @s2:  pointer
+ * Return: j-integer
  */
 int _strcmp(char *s1, char *s2)
 {
