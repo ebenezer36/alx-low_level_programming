@@ -4,7 +4,7 @@
  * int_index - search for an integer
  * @array: Pointer of integer
  * @size: Number of iterations
- * @cmp: Pointer of the function
+ * @cmp: Pointer to a function
  *
  * Return: Always 0 (success)
  */
