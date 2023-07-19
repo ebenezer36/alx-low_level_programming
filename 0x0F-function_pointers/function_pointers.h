@@ -1,5 +1,10 @@
-#ifndef _FUNCTION_POINTERS_H_
-#define _FUNCTION_POINTERS_H_
+#ifndef _FUNCTION_POINTERS_H
+#define _FUNCTION_POINTERS_H
+/**
+ * File: main
+ *
+ * Desc: header file
+**/
 
 int _putchar(char c)
 void print_name(char *name, void (*f)(char *));
