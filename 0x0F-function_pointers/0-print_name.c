@@ -2,10 +2,10 @@
 #include "function_pointers.h"
 
 /**
- * print_name - print a name 
- * @name: name of a person
- * @f: a pointer parameter
- */
+ * print_name - prints a name as is
+ * @name: name of the person
+ * @f: is pointer
+**/
 
 void print_name(char *name, void (*f)(char *))
 {
@@ -13,7 +13,7 @@ void print_name(char *name, void (*f)(char *))
 	{
 		return;
 	}
-	else 
+	else
 	{
 		f(name);
 	}
