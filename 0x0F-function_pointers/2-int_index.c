@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include "function_pointers.h"
 /**
- * init_index - checks for an integer
- * @array: a pointer of integer
+ * init_index - search for an integer
+ * @array: Pointer of integer
  * @size: Number of iterations
- * @cmp: pointer of the function
+ * @cmp: Pointer of the function
  *
  * Return: Always 0 (success)
  */
