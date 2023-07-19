@@ -6,6 +6,7 @@
  * @name: pointer to the name string to be printed
  * @f: function pointer
  */
+
 void print_name(char *name, void (*f)(char *))
 {
 	if (name != NULL && f != NULL)
