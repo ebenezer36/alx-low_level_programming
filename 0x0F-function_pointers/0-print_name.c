@@ -5,7 +5,7 @@
  * @name: name of person
  * @f: pointer to function
  *
- * Return: void
+ * Return: Nothing.
  */
 void print_name(char *name, void (*f)(char *))
 {
