@@ -2,22 +2,23 @@
 #include <stdlib.h>
 
 /**
- * listint_len - the number of elements in a linked listint_t list.
- *
- * @h: head pointer
- *
- * Return: the number of elements
- *
- */
-
-size_t listint_len(const listint_t *h)
+ * add_nodeint - add node at beginning of a listint_t list.
+  *
+  * @head: head of double pointer
+  * @n: int add the list
+  * Return: NULL if it failed
+  */
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	size_t count = 0;
+	listint_t *koo;
 
-	while (h != NULL)
-	{
-	h = h->next;
-		count++;
-	}
-	return (count);
+	if (head == NULL)
+		return (NULL);
+	koo = malloc(sizeof(listint_t));
+	if (ptr == NULL)
+		return (NULL);
+	koo->n = n;
+	koo->next = *head;
+	*head = koo;
+	return (koo);
 }
