@@ -1,4 +1,4 @@
-#include "maim.h"
+#include "main.h"
 
 /**
  * get_endianness - checks the endianness
@@ -7,7 +7,7 @@
  */
 int get_endianness(void)
 {
-	unsigned int rozzay
+	unsigned int rozzay;
 		char *c;
 
 	rozzay = 1;
