@@ -3,37 +3,39 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-
 /**
-* read_textfile - print a function that reads a text file into standard output.
-* @filename: file to read and write
-* @letters: number of letters to read and write.
-* Return: letters printed
-*/
+ * read_textfile - reads letters number of chars from file
+ * @filename: filename string
+ * @letters: number of letters to read and print
+ * Return: the number of chars read and printed
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	ssize_t nrd, nwr;
-	char *buf;
+	ssize_t nchar = 0;
+	int filedescr;
+	char *buff = malloc(sizeof(char) * letters);
 
-	if (!filename)
+	if (buff == NULL)
 		return (0);
-
-	fd = open(filename, O_RDONLY);
-
-	if (fd == -1)
+	if (filename == NULL)
+	{
+		free(buff);
 		return (0);
-
-	buf = malloc(sizeof(char) * (letters));
-	if (!buf)
+	}
+	filedescr = open(filename, O_RDONLY);
+	if (filedescr == -1)
+	{
+		free(buff);
 		return (0);
-
-	nrd = read(fd, buf, letters);
-	nwr = write(STDOUT_FILENO, buf, nrd);
-
-	close(fd);
-
-	free(buf);
-
-	return (nwr);
+	}
+	nchar = read(filedescr, buff, letters);
+	if (nchar == -1)
+	{
+		free(buff);
+		return (0);
+	}
+	nchar = write(STDOUT_FILENO, buff, nchar);
+	close(filedescr);
+	free(buff);
+	return (nchar);
 }
