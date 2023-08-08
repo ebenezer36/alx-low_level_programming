@@ -90,7 +90,7 @@ void error_from_to(char *filename, int type)
 	str = gen_err(filename, type);
 	dprintf(STDERR_FILENO, str, strlen(str));
 	free(str);
-	if (type == 0)
+	if (type == 1)
 		exit(98);
 	exit(99);
 }
