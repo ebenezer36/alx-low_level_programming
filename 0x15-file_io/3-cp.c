@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		write(STDERR_FILENO, USAGE_ERR, strlen(USAGE_ERR));
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	fd_from = open(argv[1], O_RDONLY);
