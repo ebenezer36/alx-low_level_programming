@@ -107,7 +107,7 @@ void error_close(int filedescr)
 	check = close(filedescr);
 	if (check == -1)
 	{
-		dprintf(STDERR_FILENO, CLOSE_ERR "%d\n", filedescr);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", filedescr);
 		exit(100);
 	}
 }
