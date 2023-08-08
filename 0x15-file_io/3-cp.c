@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 		error_from_to(argv[1], 0);
-	fd_to = open(rgv[2], O_WRONLY | O_CREAT | O_TRUNC | O_EXCL, 0664);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_EXCL, 0664);
 	if (fd_to == -1)
 	{
 		fd_to = open(argv[2], O_WRONLY | O_TRUNC);
