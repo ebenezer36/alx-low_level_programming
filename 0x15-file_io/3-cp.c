@@ -88,7 +88,7 @@ void error_from_to(char *filename, int type)
 	char *str;
 
 	str = gen_err(filename, type);
-	write(STDERR_FILENO, str, strlen(str));
+	dprintf(STDERR_FILENO, str, strlen(str));
 	free(str);
 	if (type == 0)
 		exit(98);
