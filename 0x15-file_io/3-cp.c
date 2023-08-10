@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 		error_from_to(argv[1], 0);
@@ -79,7 +80,7 @@ void error_close(int filedescr)
 	check = close(filedescr);
 	if (check == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", filedescr);
 		exit(100);
 	}
 }
