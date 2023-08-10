@@ -16,11 +16,11 @@ int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
 	char buff[BUFF_SIZE];
-	ssize_t byt_rd;
+	ssize_t byt_rd, byt_wr;
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, USAGE_ERR);
 		exit(97);
 	}
 	fd_from = open(argv[1], O_RDONLY);
@@ -32,49 +32,22 @@ int main(int argc, char *argv[])
 		fd_to = open(argv[2], O_WRONLY | O_TRUNC);
 		if (fd_to == -1)
 		{
-			error_close(fd_from); /* IMPORTANT*/
+			/* error_close(fd_from); IMPORTANT*/
 			error_from_to(argv[2], 1);
 		}
 	}
 	while ((byt_rd = read(fd_from, buff, BUFF_SIZE)) > 0)
 	{
-		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) < 0)
+		/*if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) < 0)*/
+		byt_wr = write(fd_to, buff, byt_rd);
+		if (byt_wr == -1)
 			error_from_to(argv[2], 1);
 	}
+	if (byt_rd == -1)
+		error_from_to(argv[1], 0);
 	error_close(fd_from);
 	error_close(fd_to);
 	return (0);
-}
-
-/**
- * gen_err - generates error message
- * @filename: filename string
- * @type: 0 for from, 1 for to, 2 for write
- * Return: pointer to the buffer where the error message is stored.
- * Needs to be free'd.
- */
-char *gen_err(char *filename, int type)
-{
-	char *str;
-	int len;
-
-	if (filename == NULL)
-		return (NULL);
-	len = strlen(filename);
-	if (type == 0)
-		str = malloc(sizeof(char) * (strlen(FROM_ERR) + len + 2));
-	if (type == 1)
-		str = malloc(sizeof(char) * (strlen(WRITE_ERR) + len + 2));
-	if (str == NULL)
-		return (NULL);
-
-	if (type == 0)
-		strcpy(str, FROM_ERR);
-	if (type == 1)
-		strcpy(str, WRITE_ERR);
-	strcat(str, filename);
-	strcat(str, "\n");
-	return (str);
 }
 
 /**
@@ -85,13 +58,12 @@ char *gen_err(char *filename, int type)
  */
 void error_from_to(char *filename, int type)
 {
-	char *str;
-
-	str = gen_err(filename, type);
-	dprintf(STDERR_FILENO, str, strlen(str));
-	free(str);
 	if (type == 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
+	}
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 	exit(99);
 }
 
@@ -107,7 +79,7 @@ void error_close(int filedescr)
 	check = close(filedescr);
 	if (check == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", filedescr);
+		dprintf(STDERR_FILENO, CLOSE_ERR "%d\n", filedescr);
 		exit(100);
 	}
 }
